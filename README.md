@@ -1,51 +1,38 @@
-# React + TypeScript + Vite
+# Personal Blog Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" width="100" height="100" style="border-radius: 50%;"> &nbsp;&nbsp;
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Logo" width="100" height="100" style="border-radius: 50%;">
+</p>
 
-Currently, two official plugins are available:
+This project is the frontend part of our Personal Blog, developed as part of the Bootcamp Generation Brasil. The goal of this application is to provide an intuitive and interactive interface for users to create, edit and view blog posts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+<img src="link-to-the-project-logo" alt="Personal Blog Logo" width="100" height="100" style="border-radius: 50%;">
+</p>
 
-## Expanding the ESLint configuration
+## 🚀 Technologies Used
+- **React.js:** JavaScript library for building user interfaces.
+- **Axios:** Library for making HTTP requests to the dedicated posts API.
+- **React Router:** Tool for managing navigation in the application.
+- **Tailwind CSS:** Tool for styling user interface components.
+- **Redux:** Library for managing the global state of the application.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ✨ Main Features
+- **Post View:** 📄 Displaying a list of blog posts, with the ability to click and read the full post. - **Post Creation:** 📝 Form for creating new posts, with fields for title, content and tags.
 
-- Configure the top-level `parserOptions` property like this:
+- **Post Editing:** ✏️ Ability to edit existing posts.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Post Deletion:** 🗑️ Function to delete posts that are no longer needed.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **User Authentication:** 🔒 Login and registration system to manage access to the post creation, editing and deletion features.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 👨‍💻 Developer
+- **Sansão Dembué Vieira**
+- <img src="https://avatars.githubusercontent.com/sansaovieira" alt="Sansão Vieira" width="100" height="100" style="border-radius: 25% 25% 25% 25%;">
+- [GitHub](https://github.com/sansaovieira)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# frontend-blogpessoal
+## 📞 Contacts
+- **LinkedIn:** [Sansão Vieira](https://www.linkedin.com/in/sansaovieira/)
+- **WhatsApp:** +55 (11) 93905-1373
+- **GitHub:** [Sansão Vieira](https://github.com/sansaovieira)
