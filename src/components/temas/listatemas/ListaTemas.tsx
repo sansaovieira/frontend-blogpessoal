@@ -5,6 +5,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
 import { buscar } from '../../../services/Services';
 import { DNA } from 'react-loader-spinner';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 export const ListaTemas = () => {
 
@@ -29,7 +30,7 @@ export const ListaTemas = () => {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!', "info")
             navigate('/')
         }
     }, [token])

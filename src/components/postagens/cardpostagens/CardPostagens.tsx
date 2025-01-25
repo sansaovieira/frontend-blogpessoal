@@ -53,7 +53,7 @@ export const CardPostagens = ({ postagem }: CardPostagensProps) => {
             <button>Editar</button>
           </Link>
           <Link
-            to={`/deletarpostagem/:id${postagem.id}`}
+            to={`/deletarpostagem/${postagem.id}`}
             className="rounded-full text-white bg-red-400 
                     hover:bg-red-600 w-full flex items-center justify-center duration-700"
           >

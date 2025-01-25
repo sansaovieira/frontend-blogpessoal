@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Services";
 import { DNA } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 export const ListaPostagens = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export const ListaPostagens = () => {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado!");
+      ToastAlerta("Você precisa estar logado!", "info");
       navigate("/");
     }
   }, [token]);
