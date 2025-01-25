@@ -8,7 +8,8 @@
 This project is the frontend part of our Personal Blog, developed as part of the Bootcamp Generation Brasil. The goal of this application is to provide an intuitive and interactive interface for users to create, edit and view blog posts.
 
 <p align="center">
-<img src="./src/assets/seja-bem-vindo.png" alt="Personal Blog Logo" style="border-radius: 50%;">
+<img src="./src/assets/imagem-principal.PNG" alt="Personal Blog Logo" style="border-radius: 50%;">
+<img src="./src/assets/login.PNG" alt="Personal Blog Logo" style="border-radius: 50%;">
 </p>
 
 ## 🚀 Technologies Used
