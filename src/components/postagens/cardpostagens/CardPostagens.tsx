@@ -6,21 +6,26 @@ interface CardPostagensProps {
 }
 export const CardPostagens = ({ postagem }: CardPostagensProps) => {
   return (
-    <div className="w-full py-8 px-8 max-w-sm mx-auto space-y-2 bg-white border-2 rounded-xl shadow-lg sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:gap-x-6">
+    <div className="w-full py-8 px-8 max-w-lg mx-auto space-y-2 bg-white border-2 rounded-xl shadow-lg sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:gap-x-6">
       <img
-        src={postagem.usuario?.foto}
+        // src={postagem.usuario?.foto}
+        src="https://ik.imagekit.io/ios4z1d4u/eu.jpg?updatedAt=1737592186386"
         className="h-12 rounded-full"
         alt={postagem.usuario?.nome}
       />
       <div className="text-center space-y-2 sm:text-left">
         <div className="space-y-0.5">
-          <p className="text-lg text-black font-semibold">
+          <p className="text-lg text-black font-semibold uppercase">
             {postagem.usuario?.nome}
           </p>
-          <p className="text-slate-500 font-medium">{postagem.titulo}</p>
-          <p className="text-slate-500 font-medium">{postagem.texto}</p>
+          <p className="text-md underline text-black font-bold uppercase">
+            {postagem.titulo}
+          </p>
+          <p className="text-base text-slate-700 text-justify font-medium">
+            {postagem.texto}
+          </p>
         </div>
-        <p className="px-4 py-1 text-sm font-semibold rounded-ful focus:ring-2">
+        <p className="px-4 py-1 text-sm font-semibold rounded-full bg-gray-200 focus:ring-2">
           {postagem.tema?.descricao}
         </p>
         <p>
@@ -34,7 +39,7 @@ export const CardPostagens = ({ postagem }: CardPostagensProps) => {
           <Link
             to={`/editarpostagem/${postagem.id}`}
             className="rounded-full w-full text-white bg-indigo-400 
-                    hover:bg-indigo-600 flex items-center justify-center py-2 duration-700"
+                  hover:bg-indigo-600 flex items-center justify-center py-2 duration-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +60,7 @@ export const CardPostagens = ({ postagem }: CardPostagensProps) => {
           <Link
             to={`/deletarpostagem/${postagem.id}`}
             className="rounded-full text-white bg-red-400 
-                    hover:bg-red-600 w-full flex items-center justify-center duration-700"
+                  hover:bg-red-600 w-full flex items-center justify-center duration-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

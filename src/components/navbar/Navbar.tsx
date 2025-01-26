@@ -1,10 +1,11 @@
 import { ReactNode, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastAlerta } from "../../utils/ToastAlerta";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { usuario, handleLogout } = useContext(AuthContext);
 
@@ -15,6 +16,12 @@ export const Navbar = () => {
   }
 
   let component: ReactNode;
+
+  const getNavLinkClass = (path: string) => {
+    return location.pathname === path
+      ? "hover:underline text-yellow-300"
+      : "hover:underline"
+  }
 
   if (usuario.token !== "") {
     component = (
@@ -28,16 +35,16 @@ export const Navbar = () => {
           </Link>
 
           <div className="flex gap-4">
-            <Link to="/postagens" className="hover:underline">
+            <Link to="/postagens" className={getNavLinkClass("/postagens")}>
               Postagens
             </Link>
-            <Link to="/temas" className="hover:underline">
+            <Link to="/temas" className={getNavLinkClass("/temas")}>
               Temas
             </Link>
-            <Link to="/cadastrartema" className="hover:underline">
+            <Link to="/cadastrartema" className={getNavLinkClass("/cadastrartema")}>
               Cadastrar tema
             </Link>
-            <Link to="/perfil" className="hover:underline">
+            <Link to="/perfil" className={getNavLinkClass("/perfil")}>
               Perfil
             </Link>
             <Link to="" onClick={logout} className="hover:underline">
