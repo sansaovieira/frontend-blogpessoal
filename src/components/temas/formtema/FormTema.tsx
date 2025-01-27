@@ -1,24 +1,24 @@
+import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
 import Tema from "../../../models/Tema";
-import { atualizar, buscar, cadastrar } from "../../../services/Services";
-import { RotatingLines } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+import { atualizar, buscar, cadastrar } from "../../../services/Services";
 
 export const FormTema = () => {
 
     const navigate = useNavigate();
 
-    const [tema, setTema] = useState<Tema>({} as Tema);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [tema, setTema] = useState<Tema>({} as Tema)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
+    const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
 
     const { id } = useParams<{ id: string }>();
 
-    const buscarPorId = async (id: string) => {
+    async function buscarPorId(id: string) {
         try {
             await buscar(`/temas/${id}`, setTema, {
                 headers: { Authorization: token }
@@ -32,60 +32,63 @@ export const FormTema = () => {
 
     useEffect(() => {
         if (token === '') {
-            ToastAlerta('Você precisa estar logado!', "info");
-            navigate('/');
+            ToastAlerta('Você precisa estar logado!', "info")
+            navigate('/')
         }
     }, [token])
 
     useEffect(() => {
         if (id !== undefined) {
-            buscarPorId(id);
+            buscarPorId(id)
         }
     }, [id])
 
-    const ataulizarEstado = (e: ChangeEvent<HTMLInputElement>) => {
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setTema({
             ...tema,
             [e.target.name]: e.target.value
         })
     }
 
-    const retornar = () => {
-        navigate('/temas');
+    function retornar() {
+        navigate("/temas")
     }
 
-    const gerarNovoTema = async (e: ChangeEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsLoading(true);
+    async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+        setIsLoading(true)
 
         if (id !== undefined) {
             try {
-                await atualizar('/temas', tema, setTema, {
+                await atualizar(`/temas`, tema, setTema, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta("O tema foi atualizado com sucesso!", "sucesso");
+                ToastAlerta('O Tema foi atualizado com sucesso!', "sucesso")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta("Erro ao atualizar o tema!", "erro");
+                    ToastAlerta('Erro ao atualizar o tema.', "erro")
                 }
+
             }
         } else {
             try {
                 await cadastrar(`/temas`, tema, setTema, {
-                    cadastrar: { 'Authorization': token }
+                    headers: { 'Authorization': token }
                 })
-                ToastAlerta("O tema foi cadastrado com sucesso!", "sucesso");
+                ToastAlerta('O Tema foi cadastrado com sucesso!', "sucesso")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta("Erro ao cadastrar o tema!", "erro");
+                    ToastAlerta('Erro ao cadastrar o tema.', "erro")
                 }
+
             }
         }
-        setIsLoading(false);
+
+        setIsLoading(false)
         retornar()
     }
 
@@ -102,14 +105,16 @@ export const FormTema = () => {
                         type="text"
                         placeholder="Descreva aqui seu tema"
                         name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="bmt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+      focus:outline-none focus:border-violet-500 focus:ring-1 focus:violet-500"
                         value={tema.descricao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => ataulizarEstado(e)}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                               hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
+                    className="mx-auto rounded-full w-1/2 text-white bg-indigo-400 
+                                   hover:bg-indigo-600 py-2
+                                   flex justify-center duration-700"
                     type="submit">
                     {isLoading ?
                         <RotatingLines
@@ -127,3 +132,5 @@ export const FormTema = () => {
         </div>
     );
 }
+
+export default FormTema;

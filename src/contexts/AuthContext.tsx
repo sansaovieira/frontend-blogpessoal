@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             await login(`/usuarios/logar`, usuarioLogin, setUsuario)
             ToastAlerta("O Usuário foi autenticado com sucesso!", "sucesso")
         } catch (error) {
-            ToastAlerta("Os Dados do usuário estão inconsistentes!", "info")
+            ToastAlerta("Os Dados do usuário estão inconsistentes!", "erro")
         }
         setIsLoading(false)
     }

@@ -75,7 +75,9 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="rounded-full w-1/2 text-white p-2 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-700"
+            className="rounded-full text-white bg-indigo-400 
+                           hover:bg-indigo-700 w-1/2 py-2
+                           flex justify-center duration-700"
           >
             {isLoading ? (
               <div className="flex items-center justify-center gap-2">

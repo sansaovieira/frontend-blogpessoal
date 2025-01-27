@@ -10,11 +10,11 @@ import { FormTema } from "./components/temas/formtema/FormTema";
 import { DeletarTema } from "./components/temas/deletartema/DeletarTema";
 import { ListaPostagens } from "./components/postagens/listapostagens/ListaPostagens";
 import { FormPostagem } from "./components/postagens/formpostagem/FormPostagem";
-import DeletarPostagem from "./components/postagens/deletarpostagem/DeletarPostagem";
 import Perfil from "./pages/perfil/Perfil";
 import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify";
+import { DeletarPostagem } from "./components/postagens/deletarpostagem/DeletarPostagem";
 
 function App() {
   return (
